@@ -57,18 +57,33 @@ Expected: ping shows unreachable during failure then automatically recovers via 
 
 Scenario 3 - Throughput Test:
 mininet> iperf h1 h4
-Expected: ~20 Gbits/sec throughput
+Expected: ~16-20 Gbits/sec throughput
+
+## Proof of Execution
+
+### Scenario 1 - Normal Operation (pingall 0% dropped)
+![pingall](screenshots/pingall.png)
+
+### Scenario 2 - Link Failure Detection (Controller logs)
+![link_failure](screenshots/link_failure.png)
+
+### Scenario 2 - Ping Recovery (icmp_seq gap then recovery)
+![ping_recovery](screenshots/ping_recovery.png)
+
+### Flow Tables after failure and rerouting
+![flow_tables](screenshots/flow_tables.png)
+
+### iperf Throughput Test
+![iperf](screenshots/iperf.png)
 
 ## Expected Output
-- Controller logs: LINK FAILURE DETECTED switch=1 port=1
+- Controller logs: LINK FAILURE DETECTED switch=1 port=2
 - Ping recovers automatically via backup path s1 to s4 to s3 to s2
 - Flow tables update dynamically after failure
+- Throughput: ~16-20 Gbits/sec
 
 ## References
 1. Mininet overview - https://mininet.org/overview/
 2. Ryu SDN Framework - https://ryu-sdn.org/
 3. OpenFlow 1.3 Specification - https://opennetworking.org/
 4. Mininet Walkthrough - https://mininet.org/walkthrough/
-
-Name:Manasi Vipin
-SRN:PES1UG24CS260
