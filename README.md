@@ -67,7 +67,7 @@ Expected: 0% dropped
 ### Test 2 - Link Failure
 mininet> link s1 s2 down
 mininet> pingall
-Expected: 0% dropped
+Expected: 83% dropped
 
 ---
 
