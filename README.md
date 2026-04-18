@@ -69,6 +69,11 @@ mininet> link s1 s2 down
 mininet> pingall
 Expected: 83% dropped
 
+### Test 3 - Link Recovery
+mininet> link s1 s2 up
+mininet> pingall
+Expected: 0% dropped
+
 ---
 
 ## Flow Table Verification
